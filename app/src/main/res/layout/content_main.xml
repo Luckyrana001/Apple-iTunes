@@ -1,0 +1,60 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#f1f5f7"
+    tools:context="com.apple.itunes.view.ItunesSongsListActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="50dp">
+
+        <TextView
+            android:id="@+id/label_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingTop="20dp"
+            android:text="Search Songs By Author Names,Title Track..."
+            android:textColor="#111"
+            android:textSize="16dp" />
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="0dp"
+            android:queryHint="Search Songs"
+            app:defaultQueryHint="Search Songs">
+
+        </androidx.appcompat.widget.SearchView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Get Search Result"
+            android:onClick="getNewRequestData"/>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/songs_list_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipToPadding="false"
+            android:scrollbars="vertical" />
+
+
+        <TextView
+            android:id="@+id/no_data_found_tv"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"
+            android:gravity="center_vertical|center_horizontal|center"
+            android:text="No Data Found."
+            android:textColor="@color/cardview_shadow_start_color"
+            android:textSize="@dimen/text_large" />
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
