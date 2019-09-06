@@ -2,13 +2,13 @@ package com.apple.itunes.controller.services;
 
 import android.util.Log;
 
+import com.apple.itunes.common.helper.Constants;
+import com.apple.itunes.common.helper.IResponseReceivedNotifyInterface;
+import com.apple.itunes.common.helper.RequestType;
+import com.apple.itunes.common.helper.ResponseArgs;
+import com.apple.itunes.common.helper.ResponseStatus;
 import com.apple.itunes.model.AppleItunesApiDataResponse;
 import com.google.gson.reflect.TypeToken;
-import com.apple.itunes.controller.services.helper.Constants;
-import com.apple.itunes.controller.services.helper.IResponseReceivedNotifyInterface;
-import com.apple.itunes.controller.services.helper.RequestType;
-import com.apple.itunes.controller.services.helper.ResponseArgs;
-import com.apple.itunes.controller.services.helper.ResponseStatus;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;
@@ -20,7 +20,7 @@ import retrofit2.Callback;
 import retrofit2.Converter;
 import retrofit2.Response;
 import retrofit2.Retrofit;
-import retrofit2.converter.jackson.JacksonConverterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RequestHandler {
     private static final String TAG = RequestHandler.class.getName();
@@ -35,7 +35,8 @@ public class RequestHandler {
         try {
             retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
-                    .addConverterFactory(JacksonConverterFactory.create())
+                    .addConverterFactory(GsonConverterFactory.create())
+                    // .addConverterFactory(JacksonConverterFactory.create())
                     .client(new OkHttpClient())
                     .build();
 
@@ -93,4 +94,4 @@ public class RequestHandler {
             }
         });
     }
-   }
+}

@@ -7,15 +7,15 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.apple.itunes.model.SongListModel;
-import com.google.gson.Gson;
-import com.apple.itunes.model.db.AppDatabase;
-import com.apple.itunes.model.db.dao.RecordsDao;
-import com.apple.itunes.controller.services.helper.LCEStatus;
-import com.apple.itunes.controller.services.helper.ServiceRuntimeException;
-import com.apple.itunes.controller.services.helper.Utils;
+import com.apple.itunes.common.helper.LCEStatus;
+import com.apple.itunes.common.helper.ServiceRuntimeException;
+import com.apple.itunes.common.helper.Utils;
 import com.apple.itunes.controller.services.ILocalServices;
 import com.apple.itunes.controller.services.IRemoteServices;
+import com.apple.itunes.model.SongListModel;
+import com.apple.itunes.model.db.AppDatabase;
+import com.apple.itunes.model.db.dao.RecordsDao;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -25,12 +25,12 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
 import static android.content.Context.CONNECTIVITY_SERVICE;
-import static com.apple.itunes.controller.services.helper.Constants.DATA_INSERT_FAILED;
-import static com.apple.itunes.controller.services.helper.Constants.DATA_LOAD_FAILED_TITLE;
-import static com.apple.itunes.controller.services.helper.Constants.LOADING_DATA;
-import static com.apple.itunes.controller.services.helper.Constants.RETRY_AGAIN;
-import static com.apple.itunes.controller.services.helper.Constants.TABLE_DATA_UPDATED;
-import static com.apple.itunes.controller.services.helper.Constants.TABLE_INSERT_ERROR;
+import static com.apple.itunes.common.helper.Constants.DATA_INSERT_FAILED;
+import static com.apple.itunes.common.helper.Constants.DATA_LOAD_FAILED_TITLE;
+import static com.apple.itunes.common.helper.Constants.LOADING_DATA;
+import static com.apple.itunes.common.helper.Constants.RETRY_AGAIN;
+import static com.apple.itunes.common.helper.Constants.TABLE_DATA_UPDATED;
+import static com.apple.itunes.common.helper.Constants.TABLE_INSERT_ERROR;
 
 
 public class SongsListController extends ViewModel {
@@ -42,7 +42,7 @@ public class SongsListController extends ViewModel {
     private MutableLiveData<ArrayList<SongListModel>> mlSongsListData = new MutableLiveData<>();
     private RecordsDao recordsDao;
     private Context context;
-    private String searchQuery = "jack+johnson";
+    private String searchQuery = "";
 
     public SongsListController(IRemoteServices rservice, ILocalServices lservice, Context ctx) {
 
@@ -110,15 +110,17 @@ public class SongsListController extends ViewModel {
 
     }
 
+    public ArrayList<SongListModel> getSongList(){
+        return mlSongsListData.getValue();
+    }
+
     public void getSavedDataFromDbIfHaveAny() {
         Disposable dbDataDisposable = mLocalServices.getDataFromDatabase(recordsDao)
                 .subscribeOn(Schedulers.single())
-                .subscribe(getWeatherData -> {
-                    if (getWeatherData == null || getWeatherData.isEmpty()) {
-                        mlLceStatus.postValue(LCEStatus.error(DATA_LOAD_FAILED_TITLE, RETRY_AGAIN));
-                    } else {
+                .subscribe(getSavedSearchResult -> {
+                    if (getSavedSearchResult != null || !getSavedSearchResult.isEmpty()) {
                         LCEStatus.success();
-                        mlSongsListData.postValue(getWeatherData);
+                        mlSongsListData.postValue(getSavedSearchResult);
                     }
 
                 });
@@ -140,12 +142,9 @@ public class SongsListController extends ViewModel {
     }
 
 
-
     public LiveData<ArrayList<SongListModel>> getiTunesSearchApiData() {
         return mlSongsListData;
     }
-
-
 
 
     @Override

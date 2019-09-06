@@ -1,4 +1,4 @@
-package com.apple.itunes.controller.services.helper;
+package com.apple.itunes.common;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -41,8 +41,8 @@ public class SongListAdapterAdapter extends RecyclerView.Adapter<SongListAdapter
         holder.collectionCensoredName.setText(model.getCollectionCensoredName());
         String[] dateString = model.getReleaseDate().split("T");
         String releaseDate = dateString[0];
-        holder.releaseDate.setText("Release Date: "+releaseDate);
-        holder.collectionPrice.setText("Price: $"+model.getCollectionPrice()+"");
+        holder.releaseDate.setText("Released: " + releaseDate);
+        holder.collectionPrice.setText("Price: $" + model.getCollectionPrice() + "");
 
         Glide.with(mContext)
                 .load(model.getArtworkUrl100())
@@ -54,28 +54,11 @@ public class SongListAdapterAdapter extends RecyclerView.Adapter<SongListAdapter
         return cardTypeList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
-        public TextView collectionCensoredName,collectionPrice,releaseDate;
-        public ImageView thumbnailIv;
-        public MyViewHolder(View view) {
-            super(view);
-            thumbnailIv = view.findViewById(R.id.thumbnail_song_iv);
-            collectionCensoredName = view.findViewById(R.id.song_title_tv);
-
-            releaseDate = view.findViewById(R.id.release_date_tv);
-            collectionPrice = view.findViewById(R.id.price_tv);
-
-
-        }
-    }
-
-
     public void removeAt(int position) {
         cardTypeList.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, cardTypeList.size());
     }
-
 
     public void animateTo(List<SongListModel> models) {
         applyAndAnimateRemovals(models);
@@ -126,5 +109,21 @@ public class SongListAdapterAdapter extends RecyclerView.Adapter<SongListAdapter
         final SongListModel model = cardTypeList.remove(fromPosition);
         cardTypeList.add(toPosition, model);
         notifyItemMoved(fromPosition, toPosition);
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        public TextView collectionCensoredName, collectionPrice, releaseDate;
+        public ImageView thumbnailIv;
+
+        public MyViewHolder(View view) {
+            super(view);
+            thumbnailIv = view.findViewById(R.id.thumbnail_song_iv);
+            collectionCensoredName = view.findViewById(R.id.song_title_tv);
+
+            releaseDate = view.findViewById(R.id.release_date_tv);
+            collectionPrice = view.findViewById(R.id.price_tv);
+
+
+        }
     }
 }

@@ -1,4 +1,4 @@
-package com.apple.itunes.controller.services.helper;
+package com.apple.itunes.common.helper;
 
 public class Constants {
 
@@ -16,5 +16,5 @@ public class Constants {
     public static String LOADING_DATA = "Loading New Data ...";
     public static String VIEWMODEL_EXPECTED = "ViewModel expected";
 
-
+    public static String SEARCH_VIEW_TEXT = "";
 }

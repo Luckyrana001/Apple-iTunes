@@ -1,4 +1,4 @@
-package com.apple.itunes.controller.services.helper;
+package com.apple.itunes.common.helper;
 
 
 public interface IResponseReceivedNotifyInterface {

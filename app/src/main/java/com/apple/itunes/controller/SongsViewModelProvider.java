@@ -10,7 +10,7 @@ import com.apple.itunes.controller.services.ILocalServices;
 import com.apple.itunes.controller.services.IRemoteServices;
 import com.apple.itunes.controller.services.LocalServices;
 
-import static com.apple.itunes.controller.services.helper.Constants.VIEWMODEL_EXPECTED;
+import static com.apple.itunes.common.helper.Constants.VIEWMODEL_EXPECTED;
 
 
 public class SongsViewModelProvider implements ViewModelProvider.Factory {

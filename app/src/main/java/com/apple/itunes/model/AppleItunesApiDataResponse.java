@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class AppleItunesApiDataResponse {
     Integer resultCount;
+    ArrayList<SongListModel> results = new ArrayList<>();
 
     public Integer getResultCount() {
         return resultCount;
@@ -20,10 +21,6 @@ public class AppleItunesApiDataResponse {
     public void setResults(ArrayList<SongListModel> results) {
         this.results = results;
     }
-
-    ArrayList<SongListModel> results = new ArrayList<>();
-
-
 
 
 }

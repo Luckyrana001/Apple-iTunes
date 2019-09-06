@@ -1,4 +1,4 @@
-package com.apple.itunes.controller.services.helper;
+package com.apple.itunes.common.helper;
 
 import android.content.Context;
 import android.net.ConnectivityManager;

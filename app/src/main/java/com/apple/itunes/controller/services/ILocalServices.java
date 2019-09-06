@@ -1,8 +1,8 @@
 package com.apple.itunes.controller.services;
 
 
-import com.apple.itunes.model.db.dao.RecordsDao;
 import com.apple.itunes.model.SongListModel;
+import com.apple.itunes.model.db.dao.RecordsDao;
 
 import java.util.ArrayList;
 

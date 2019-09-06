@@ -1,8 +1,8 @@
 package com.apple.itunes.controller.services;
 
 
-import com.apple.itunes.controller.services.helper.RequestType;
-import com.apple.itunes.controller.services.helper.ServiceRuntimeException;
+import com.apple.itunes.common.helper.RequestType;
+import com.apple.itunes.common.helper.ServiceRuntimeException;
 import com.apple.itunes.model.AppleItunesApiDataResponse;
 
 import io.reactivex.Observable;

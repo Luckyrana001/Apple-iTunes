@@ -1,8 +1,8 @@
 package com.apple.itunes;
 
+import com.apple.itunes.controller.services.iTunesRestService;
 import com.apple.itunes.model.AppleItunesApiDataResponse;
 import com.google.gson.Gson;
-import com.apple.itunes.controller.services.iTunesRestService;
 
 import retrofit2.Call;
 import retrofit2.mock.BehaviorDelegate;

@@ -36,9 +36,101 @@ public class SongListModel {
         }*/
 
 
+    String artistName;
+    String trackViewUrl;
+
+
+    String previewUrl;
+    String artworkUrl30;
+    String artworkUrl60;
+    String artworkUrl100;
+    String releaseDate;
+    String trackExplicitness;
+
+
+    String currency;
+    String country;
+    String primaryGenreName;
+    Integer artistId, collectionId, discCount, discNumber, trackCount, trackNumber, trackTimeMillis;
+
+
+    Double collectionPrice, trackPrice;
+    String isStreamable;
+    String collectionArtistName;
+    String collectionName;
+    String trackName;
+    String collectionCensoredName;
+    String artistViewUrl;
+    String collectionViewUrl;
+
     String wrapperType;
     String kind;
+    String trackId;
+    String collectionExplicitness;
+    String trackCensoredName;
 
+
+    public Double getCollectionPrice() {
+        return collectionPrice;
+    }
+
+    public void setCollectionPrice(Double collectionPrice) {
+        this.collectionPrice = collectionPrice;
+    }
+
+    public String getArtworkUrl100() {
+        return artworkUrl100;
+    }
+
+    public void setArtworkUrl100(String artworkUrl100) {
+        this.artworkUrl100 = artworkUrl100;
+    }
+
+    public String getReleaseDate() {
+        return releaseDate;
+    }
+
+    public void setReleaseDate(String releaseDate) {
+        this.releaseDate = releaseDate;
+    }
+
+    public String getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(String currency) {
+        this.currency = currency;
+    }
+
+    public String getPreviewUrl() {
+        return previewUrl;
+    }
+
+    public void setPreviewUrl(String previewUrl) {
+        this.previewUrl = previewUrl;
+    }
+
+    public Double getTrackPrice() {
+        return trackPrice;
+    }
+
+    public void setTrackPrice(Double trackPrice) {
+        this.trackPrice = trackPrice;
+    }
+
+    public String getCollectionCensoredName() {
+        return collectionCensoredName;
+    }
+
+    public void setCollectionCensoredName(String collectionCensoredName) {
+        this.collectionCensoredName = collectionCensoredName;
+    }
+
+
+
+
+
+   /*
     public String getCollectionExplicitness() {
         return collectionExplicitness;
     }
@@ -47,7 +139,7 @@ public class SongListModel {
         this.collectionExplicitness = collectionExplicitness;
     }
 
-    String collectionExplicitness;
+
 
     public String getTrackCensoredName() {
         return trackCensoredName;
@@ -57,7 +149,7 @@ public class SongListModel {
         this.trackCensoredName = trackCensoredName;
     }
 
-    String trackCensoredName;
+
 
     public String getTrackId() {
         return trackId;
@@ -67,7 +159,7 @@ public class SongListModel {
         this.trackId = trackId;
     }
 
-    String trackId;
+
 
     public String getWrapperType() {
         return wrapperType;
@@ -246,7 +338,6 @@ public class SongListModel {
     }
 
 
-    String artistName;
 
     public String getCollectionArtistName() {
         return collectionArtistName;
@@ -256,12 +347,6 @@ public class SongListModel {
         this.collectionArtistName = collectionArtistName;
     }
 
-    String collectionArtistName;
-    String collectionName;
-    String trackName;
-    String collectionCensoredName;
-    String artistViewUrl;
-    String collectionViewUrl;
 
     public String getCollectionCensoredName() {
         return collectionCensoredName;
@@ -295,13 +380,6 @@ public class SongListModel {
         this.collectionPrice = collectionPrice;
     }
 
-    String trackViewUrl;
-    String previewUrl;
-    String artworkUrl30;
-    String artworkUrl60;
-    String artworkUrl100;
-    String releaseDate;
-    String trackExplicitness;
 
     public String getCurrency() {
         return currency;
@@ -311,11 +389,6 @@ public class SongListModel {
         this.currency = currency;
     }
 
-    String currency;
-    String country;
-    String primaryGenreName;
-    Integer artistId, collectionId, discCount, discNumber, trackCount, trackNumber, trackTimeMillis;
-    Double collectionPrice, trackPrice;
 
     public String getIsStreamable() {
         return isStreamable;
@@ -324,6 +397,5 @@ public class SongListModel {
     public void setIsStreamable(String isStreamable) {
         this.isStreamable = isStreamable;
     }
-
-    String isStreamable;
+    */
 }

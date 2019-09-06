@@ -3,9 +3,9 @@ package com.apple.itunes.controller.services;
 
 import com.apple.itunes.model.AppleItunesApiDataResponse;
 import com.apple.itunes.model.SongListModel;
-import com.google.gson.Gson;
 import com.apple.itunes.model.db.dao.RecordsDao;
 import com.apple.itunes.model.db.entity.RecordsDataDao;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;

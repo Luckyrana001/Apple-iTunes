@@ -8,10 +8,10 @@ import androidx.test.espresso.ViewInteraction;
 import androidx.test.espresso.matcher.ViewMatchers;
 import androidx.test.rule.ActivityTestRule;
 
+import com.apple.itunes.common.helper.Constants;
 import com.apple.itunes.view.ItunesSongsListActivity;
 import com.squareup.okhttp.mockwebserver.MockResponse;
 import com.squareup.okhttp.mockwebserver.MockWebServer;
-import com.apple.itunes.controller.services.helper.Constants;
 
 import org.junit.After;
 import org.junit.Before;

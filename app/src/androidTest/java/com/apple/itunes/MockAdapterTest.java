@@ -3,8 +3,8 @@ package com.apple.itunes;
 
 import androidx.test.filters.SmallTest;
 
-import com.apple.itunes.model.AppleItunesApiDataResponse;
 import com.apple.itunes.controller.services.iTunesRestService;
+import com.apple.itunes.model.AppleItunesApiDataResponse;
 
 import junit.framework.Assert;
 
