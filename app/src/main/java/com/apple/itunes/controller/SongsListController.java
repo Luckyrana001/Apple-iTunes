@@ -19,7 +19,6 @@ import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
-import io.andref.rx.network.RxNetwork;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
@@ -51,22 +50,6 @@ public class SongsListController extends ViewModel {
         context = ctx;
 
         recordsDao = AppDatabase.getInstance(context).userDao();
-
-
-        ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);
-        RxNetwork.connectivityChanges(context, connectivityManager)
-                .subscribe(connected -> {
-                    if (connected)
-                        getDataFromApi(searchQuery);
-                    else
-                        getSavedDataFromDbIfHaveAny();
-
-                }, throwable -> {
-                    if (throwable instanceof ServiceRuntimeException) {
-                        throwable.printStackTrace();
-                    }
-                });
-
 
     }
 

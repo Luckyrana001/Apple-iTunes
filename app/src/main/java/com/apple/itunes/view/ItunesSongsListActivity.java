@@ -25,6 +25,7 @@ import com.apple.itunes.R;
 import com.apple.itunes.common.RecyclerTouchListener;
 import com.apple.itunes.common.SongListAdapterAdapter;
 import com.apple.itunes.common.helper.LCEStatus;
+import com.apple.itunes.common.helper.Utils;
 import com.apple.itunes.controller.SongsListController;
 import com.apple.itunes.controller.SongsViewModelProvider;
 import com.apple.itunes.controller.services.IRemoteServices;
@@ -135,7 +136,9 @@ public class ItunesSongsListActivity extends AppCompatActivity implements androi
     }
 
     public void getNewRequestData(View v) {
-        viewModel.getDataFromApi(searchQuerytext);
+        if (Utils.isNetworkConnected(this, true, R.style.AppCompatAlertDialogStyle)) {
+            viewModel.getDataFromApi(searchQuerytext);
+        }
     }
 
     @Override
@@ -298,7 +301,9 @@ public class ItunesSongsListActivity extends AppCompatActivity implements androi
         switch (item.getItemId()) {
 
             case R.id.refreshBtn:
-                viewModel.getDataFromApi(searchQuerytext);
+                if (Utils.isNetworkConnected(this, true, R.style.AppCompatAlertDialogStyle)) {
+                    viewModel.getDataFromApi(searchQuerytext);
+                }
                 break;
 
         }

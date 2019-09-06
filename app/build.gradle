@@ -87,7 +87,7 @@ dependencies {
 
 
     // network connection checker lib
-    implementation 'io.andref:Rx.Network:1.0.1'
+    //implementation 'io.andref:Rx.Network:1.0.1'
 
     // Image loading lib
     implementation 'com.github.bumptech.glide:glide:4.9.0'
